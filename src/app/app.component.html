@@ -1,0 +1,57 @@
+
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-brand">
+      Employee Management System
+    </div>
+  </div>
+</nav>
+
+
+<section id="main">
+  <div class="container">
+    <section id="inputs">
+      <div class="input-group-container">
+        <div class="input-group">
+          <label for="empName">Name</label>
+          <input type="text" #empName id="empName">
+        </div>
+        <div class="input-group">
+          <label for="empName">Surname</label>
+          <input type="text" #empSurname id="empSurname">
+        </div>
+        <div class="input-group">
+          <label for="empName">Department</label>
+          <input type="text" #empDepartment id="empDepartment">
+        </div>
+      </div>
+      <button class="btnAdd" (click)= "addEmployee(empName.value,empSurname.value,empDepartment.value); empName.value=''; empSurname.value=''; empDepartment.value='';"><i class="fas fa-plus"></i>Add</button>
+    </section>
+
+    <section id="employees">
+      <table>
+        <thead>
+          <tr>
+            <th> ID </th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Department</th>
+            <th> * </th>
+          </tr>
+        </thead>
+        <tbody >
+          
+          <tr *ngFor="let employee of getItems()">
+            <td>{{employee.id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.surname}}</td>
+            <td>{{employee.department}}</td>
+            <td><button class="btnDelete" (click) = "deleteEmployee(employee.id)"><i class="far fa-trash-alt"></i> Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</section>
+
+
